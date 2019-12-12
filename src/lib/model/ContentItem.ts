@@ -141,7 +141,7 @@ export class ContentItem extends HalResource {
       this.updateLinkedResource(
         'set-delivery-key',
         {},
-        { deliveryKey, version: this.version },
+        { deliveryKey, version: this.version } as any,
         ContentItem
       )
   };
