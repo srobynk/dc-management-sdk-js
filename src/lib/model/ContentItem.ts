@@ -135,7 +135,19 @@ export class ContentItem extends HalResource {
      * to avoid overwriting other user's changes.
      */
     update: (mutation: ContentItem): Promise<ContentItem> =>
-      this.updateResource(mutation, ContentItem)
+      this.updateResource(mutation, ContentItem),
+ 
+    /**
+     * Create localizations of the content item
+     * @param deliveryKey String to set delivery key
+     */
+    setDeliveryKey: (deliveryKey: string) =>
+      this.performActionThatReturnsResource(
+        'set-delivery-key',
+        {},
+        { deliveryKey, version: this.version },
+        ContentItem
+      )
   };
 }
 
